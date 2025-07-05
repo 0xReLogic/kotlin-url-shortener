@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Stats | URL Shortener</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <header>
+        <h1>URL Stats</h1>
+        <button id="toggle-theme" aria-label="Toggle dark mode">🌙</button>
+    </header>
+    <main>
+        <section class="stats-section">
+            <form id="stats-form" autocomplete="off">
+                <input type="text" id="short-code" placeholder="Enter short code..." required pattern="^[a-zA-Z0-9]{6,7}$" maxlength="7">
+                <button type="submit">Check Stats</button>
+            </form>
+            <div id="stats-result" class="hidden">
+                <div><strong>Original URL:</strong> <span id="stat-original"></span></div>
+                <div><strong>Click Count:</strong> <span id="stat-clicks"></span></div>
+                <div><strong>Created At:</strong> <span id="stat-created"></span></div>
+                <div><strong>Status:</strong> <span id="stat-status"></span></div>
+            </div>
+            <div id="stats-error" class="error"></div>
+        </section>
+        <section class="back-link">
+            <a href="/">← Back to Shortener</a>
+        </section>
+    </main>
+    <footer>
+        <span>© 2025 URL Shortener</span>
+    </footer>
+    <script src="/assets/stats.js"></script>
+</body>
+</html>

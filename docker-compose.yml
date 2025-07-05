@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - BASE_URL=http://localhost:8080
+      - DATABASE_URL=jdbc:h2:/data/shortener;DB_CLOSE_DELAY=-1;
+      - DATABASE_DRIVER=org.h2.Driver
+      - DATABASE_USER=sa
+      - DATABASE_PASSWORD=
+    volumes:
+      - h2data:/data
+    depends_on:
+      - h2db
+
+  h2db:
+    image: oscarfonts/h2
+    ports:
+      - "9092:9092"
+    environment:
+      - H2_OPTIONS=-ifNotExists
+    volumes:
+      - h2data:/h2-data
+
+volumes:
+  h2data:

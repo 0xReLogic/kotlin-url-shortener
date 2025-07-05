@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <header>
+        <h1>URL Shortener</h1>
+        <button id="toggle-theme" aria-label="Toggle dark mode">🌙</button>
+    </header>
+    <main>
+        <section class="shorten-section">
+            <form id="shorten-form" autocomplete="off">
+                <input type="url" id="long-url" placeholder="Paste your long URL here..." required>
+                <input type="text" id="custom-alias" placeholder="Custom alias (optional)" pattern="^[a-zA-Z0-9]{6,7}$" maxlength="7">
+                <button type="submit">Shorten</button>
+            </form>
+            <div id="result" class="hidden">
+                <span id="short-url"></span>
+                <button id="copy-btn">Copy</button>
+            </div>
+            <div id="error" class="error"></div>
+        </section>
+        <section class="recent-section">
+            <h2>Recent Shortened URLs</h2>
+            <ul id="recent-list"></ul>
+        </section>
+        <section class="stats-link">
+            <a href="/assets/stats.html">Check URL Stats</a>
+        </section>
+    </main>
+    <footer>
+        <span>© 2025 URL Shortener</span>
+    </footer>
+    <script src="/assets/main.js"></script>
+</body>
+</html>
